@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   devise_for :users
+=======
+  root to: "home#index"
+>>>>>>> 1a99c2b51cb9099bb58d979647e5ba778fbf5e75
   resources :notifications
 
   resources :users

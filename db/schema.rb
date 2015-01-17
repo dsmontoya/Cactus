@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150117035450) do
+=======
+ActiveRecord::Schema.define(version: 20150117033119) do
+>>>>>>> 1a99c2b51cb9099bb58d979647e5ba778fbf5e75
 
   create_table "forms", force: true do |t|
     t.datetime "created_at"
@@ -26,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150117035450) do
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -41,4 +46,8 @@ ActiveRecord::Schema.define(version: 20150117035450) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+=======
+  end
+
+>>>>>>> 1a99c2b51cb9099bb58d979647e5ba778fbf5e75
 end

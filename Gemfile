@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Use AngularJS on frontend
+gem 'angularjs-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
