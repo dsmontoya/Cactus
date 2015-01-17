@@ -2,7 +2,7 @@ var app = angular.module('hacktus', ['ngMaterial'])
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryColor('purple')
-    .accentColor('orange');
+    .accentColor('purple');
 });
 
 // form controller
@@ -15,13 +15,40 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
     $scope.save = function(form) {
         return $http.post('/api/v1/forms', form).success(function(data) {
             $scope.submitted = 'Form Submitted';
+            $scope.showSuccessToast();
+
         });
     };
+    $scope.showSuccessToast = function() {
+        $mdToast.show(
+            $mdToast.simple()
+                .content('Success!')
+                .position($scope.getToastPosition())
+                .hideDelay(0)
+    )};
 
 }]);
 
 // dashboard controller
-app.controller("DashboardController", ['$scope', function($scope) {
+app.controller("DashboardController", ['$scope', '$mdToast', '$animate', function($scope, $mdToast, $animate) {
+    $scope.toastPosition = {
+        bottom: true,
+        top: false,
+        left: false,
+        right: true
+    };
+    $scope.getToastPosition = function() {
+        return Object.keys($scope.toastPosition)
+        .filter(function(pos) { return $scope.toastPosition[pos]; })
+        .join(' ');
+    };
+    $scope.showActionToast = function() {
+        $mdToast.show(
+            $mdToast.simple()
+                .content('Simple Toast!')
+                .position($scope.getToastPosition())
+                .hideDelay(0)
+    )};
 
 }]);
 

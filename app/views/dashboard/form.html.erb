@@ -28,12 +28,12 @@
 	      </div>
 	      <md-input-container flex>
 	        <label>How Did You Hear About Us?</label>
-	        <input nameng-model="how_did_you_hear_about_us">
+	        <textarea name="how_did_you_hear_about_us" ng-model="form.how_did_you_hear_about_us" columns="1" md-maxlength="150"></textarea>
 	      </md-input-container>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
-	          <label>Facebook</label>
-	          <input name="facebook" ng-model="profile.facebook" type="text">
+	          <label>What Sponsor Do You Want to See the Most?</label>
+  			  <textarea name="sponsor_you_want_to_see" ng-model="form.sponsor_you_want_to_see" columns="1" md-maxlength="50"></textarea>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Twitter</label>
@@ -63,10 +63,6 @@
 	        <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
 	      </md-input-container>
 	    </md-content>
-	    	<md-button class="md-raised md-primary" ng-click="save(form)">Submit</md-button>
+	    	<md-button class="md-raised md-primary" ng-click="save(form);showActionToast()">Submit</md-button>
 	  </form>
 	</div>
-
-<md-button ng-click="showSimpleToast()">
-        Show Simple
-      </md-button>

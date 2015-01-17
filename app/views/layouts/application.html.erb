@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="hacktus">
 <head>
   <title>HactusApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!-- Angulars Material CSS now available via Google CDN; version 0.6 used here -->
+  <link rel="stylesheet" href="//rawgit.com/angular/bower-material/master/angular-material.css">
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
 <%= yield %>
+
+<!-- Angular Material Dependencies -->
+<script src="//cdn.jsdelivr.net/hammerjs/2.0.4/hammer.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.js"></script>
+
+<!-- Angular Material Javascript using RawGit to load directly from `bower-material/master` -->
+<script src="//rawgit.com/angular/bower-material/master/angular-material.js"></script>
+
+<script>
+$(".select2").select2();
+</script>
 
 </body>
 </html>

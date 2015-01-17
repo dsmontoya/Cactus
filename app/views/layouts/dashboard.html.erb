@@ -5,21 +5,38 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-      <!-- Angulars Material CSS now available via Google CDN; version 0.6 used here -->
-    <link rel="stylesheet" href="//rawgit.com/angular/bower-material/master/angular-material.css">
-
+  <!-- Angulars Material CSS now available via Google CDN; version 0.6 used here -->
+  <link rel="stylesheet" href="//rawgit.com/angular/bower-material/master/angular-material.css">
 </head>
 <body ng-controller="DashboardController as dashboard">
 <header>
     <md-toolbar scroll-shrink layout="row">
         <div class="md-toolbar-tools">
-            <md-button ng-click="toggleMenu()">Menu</md-button>
             <h3>
-                <span>Hacktus</span>
+                <span>Hack Arizona</span>
             </h3>
         </div>
     </md-toolbar>
 </header>
+
+<md-tabs class="md-accent" md-selected="data.selectedIndex">
+      <md-tab id="tab1" aria-controls="tab1-content">
+        My Profile
+      </md-tab>
+      <md-tab id="tab2" aria-controls="tab2-content" ng-disabled="data.secondLocked">
+        My Applications
+      </md-tab>
+      <md-tab id="tab3" aria-controls="tab2-content" ng-disabled="data.secondLocked">
+        Teams
+      </md-tab>
+      <md-tab id="tab4" aria-controls="tab3-content">
+        Applicants
+      </md-tab>
+    </md-tabs>
+    <%= link_to "Logout", logout_path %>
+
+
+
 <%= yield %>
 
 <!-- Angular Material Dependencies -->

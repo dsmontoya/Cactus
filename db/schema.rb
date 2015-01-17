@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117113630) do
+ActiveRecord::Schema.define(version: 20150117144843) do
 
   create_table "dashboards", force: true do |t|
     t.datetime "created_at"
@@ -36,6 +36,11 @@ ActiveRecord::Schema.define(version: 20150117113630) do
   end
 
   create_table "notifications", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resumes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
