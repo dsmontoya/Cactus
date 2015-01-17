@@ -55,6 +55,10 @@ app.controller("DashboardController", ['$scope', '$mdToast', '$animate', functio
 // profile controller
 app.controller("ProfileController", ['$scope', '$http', function($scope, $http) {
     $scope.profile;
+    $scope.uni;
+
+    
+
 
     $scope.load = function(json) {
         $scope.profile = json;
@@ -65,4 +69,11 @@ app.controller("ProfileController", ['$scope', '$http', function($scope, $http) 
         });
     };
 
+    $scope.loadUni = function() {
+        $http.get("/uniParsed8").success(function(data, status, headers, config) {
+            $scope.uni = data;
+        }).error(function(data, status, headers, config) {
+            alert('fail');
+        });
+        };
 }]);
