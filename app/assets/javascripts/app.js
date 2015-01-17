@@ -83,7 +83,7 @@ app.controller("ProfileController", ['$scope', '$http', function($scope, $http) 
     };
 
     $scope.loadUni = function() {
-        $http.get("/uniParsed8").success(function(data, status, headers, config) {
+        $http.get("/uniParsed").success(function(data, status, headers, config) {
             $scope.uni = data;
         }).error(function(data, status, headers, config) {
             alert('fail');
