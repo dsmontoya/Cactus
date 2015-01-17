@@ -16,4 +16,5 @@
 //= require angular
 //= require angular-animate
 //= require angular-aria
+//= require select2
 //= require_tree .
