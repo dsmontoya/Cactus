@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'dashboard/submissions' => 'dashboard#available_forms', as: :submissions
 
   get 'users' => 'api/v1/users#index', as: :users
+  get 'dashboard/team' => 'dashboard#team', as: :team
 
 namespace :api, defaults: {format: 'json'} do
   namespace :v1 do
