@@ -69,6 +69,7 @@ $scope.toastPosition = {
 app.controller("ProfileController", ['$scope', '$http', function($scope, $http) {
     $scope.profile;
     $scope.uni;
+    $scope.listIsHidden = false;
 
     
 
@@ -92,6 +93,15 @@ app.controller("ProfileController", ['$scope', '$http', function($scope, $http) 
 
     $scope.setSchool = function(name) {
         $scope.profile.school = name;
+        $scope.listIsHidden = true;
+    };
+
+    $scope.hideSchool = function() {
+        $scope.hideSchools = true;
+    };
+
+    $scope.showSchool = function() {
+        $scope.listIsHidden = false;
     };
 }]);
 

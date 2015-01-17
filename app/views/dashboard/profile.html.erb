@@ -23,8 +23,10 @@
 	      </div>
 	      <md-input-container flex>
 	        <label>School</label>
-	        <input ng-model="profile.school">
-	    		<li ng-repeat="university in uni | filter:profile.school | limitTo:5" ng-click="setSchool(university.universityName)">
+	        <input ng-model="profile.school" ng-keypress="showSchool()">
+	    		<li ng-repeat="university in uni | filter:profile.school | 		limitTo:5" 
+	    			ng-click="setSchool(university.universityName)"
+	    			ng-hide="listIsHidden" class="ng-hide">
 	      			{{university.universityName}}
 	    		</li>
 	      </md-input-container>
