@@ -12,10 +12,15 @@ app.controller("FormController", ['$scope', function($scope) {
 
 // dashboard controller
 app.controller("DashboardController", ['$scope', function($scope) {
-    $scope.dashboard;
+
+}]);
+
+// profile controller
+app.controller("ProfileController", ['$scope', function($scope) {
+    $scope.profile;
 
     $scope.load = function(json) {
-        $scope.dashboard = json;
+        $scope.profile = json;
     };
 
 }]);

@@ -1,31 +1,83 @@
-<input name="first_name" ng-model="dashboard.first_name" placeholder="Hactus" type="text">
-{{dashboard.first_name}}
+<section class="demo-container md-whiteframe-z1">
+	<md-content class="md-default-theme">
+    <section layout="row" layout-sm="column" layout-align="center center">
+      <button class="md-button md-default-theme" ng-transclude="" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-binding ng-scope">Button</span></button>
+      <button class="md-primary md-button md-default-theme" ng-transclude="" md-no-ink=""><span class="ng-scope">Primary (md-noink)</span></button>
+      <button class="md-primary md-button md-default-theme" ng-transclude="" ng-disabled="true" aria-disabled="true" disabled="disabled" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-scope">Disabled</span></button>
+      <button class="md-warn md-button md-default-theme" ng-transclude="" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-binding ng-scope">Warn</span></button>
+    </section>
 
-<input name="last_name" ng-model="dashboard.last_name" placeholder="Cactus" type="text">
-{{dashboard.last_name}}
+    <section layout="row" layout-sm="column" layout-align="center center">
+      <button class="md-raised md-button md-default-theme" ng-transclude="" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-scope">Button</span></button>
+      <button class="md-raised md-primary md-button md-default-theme" ng-transclude="" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-scope">Primary</span></button>
+      <button class="md-raised md-primary md-button md-default-theme" ng-transclude="" ng-disabled="true" aria-disabled="true" disabled="disabled" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-scope">Disabled</span></button>
+      <button class="md-raised md-warn md-button md-default-theme" ng-transclude="" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-scope">Warn</span></button>
+      <div class="label">raised</div>
+    </section>
 
-<input name="email" ng-model="dashboard.email" placeholder="test" type="text" required>
-{{dashboard.email}}
+    <section layout="row" layout-sm="column" layout-align="center center">
+        <button class="md-fab md-button md-default-theme" ng-transclude="" aria-label="Time" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+            <md-icon icon="/img/icons/ic_access_time_24px.svg" style="width: 24px; height: 24px;" class="ng-scope"><object class="md-icon" data="/img/icons/ic_access_time_24px.svg"></object></md-icon>
+        </button>
 
-<select name="school" ng-model="dashboard.school" placeholder='school' type="text" >
-{{dashboard.school}}
+      <button class="md-fab md-button md-default-theme" ng-transclude="" aria-label="New document" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+        <md-icon icon="/img/icons/ic_insert_drive_file_24px.svg" style="width: 24px; height: 24px;" class="ng-scope"><object class="md-icon" data="/img/icons/ic_insert_drive_file_24px.svg"></object></md-icon>
+      </button>
 
-<input name="facebook" ng-model="dashboard.facebook" placeholder="facebook" type="text" required>
-{{dashboard.facebook}}
+        <button class="md-fab md-button md-default-theme" ng-transclude="" ng-disabled="true" aria-label="Comment" aria-disabled="true" disabled="disabled" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+            <md-icon icon="/img/icons/ic_comment_24px.svg" style="width: 24px; height: 24px;" class="ng-scope"><object class="md-icon" data="/img/icons/ic_comment_24px.svg"></object></md-icon>
+        </button>
 
-<input name="linkedin" ng-model="dashboard.linkedin" placeholder="linkedin" type="text">
-{{dashboard.linkedin}}
+        <button class="md-fab md-primary md-button md-cyan-theme" ng-transclude="" md-theme="cyan" aria-label="Profile" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+            <md-icon icon="/img/icons/ic_people_24px.svg" style="width: 24px; height: 24px;" class="ng-scope"><object class="md-icon" data="/img/icons/ic_people_24px.svg"></object></md-icon>
+        </button>
+      <div class="label">FAB</div>
+    </section>
 
-<input name="twitter" ng-model="dashboard.twitter" placeholder="twitter" type="text">
-{{dashboard.email}}
+    <section layout="row" layout-sm="column" layout-align="center center">
+        <a class="md-button md-default-theme" ng-transclude="" ng-href="http://google.com" target="_blank" href="http://google.com" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-scope">Go to Google</span></a>
+        <button class="md-button md-default-theme" ng-transclude="" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-scope">RSVP</span></button>
+    </section>
 
-<input name="github" ng-model="dashboard.github" placeholder="github" type="text">
-{{dashboard.github}}
+    <section layout="row" layout-sm="column" layout-align="center center">
+      <button class="md-primary md-hue-1 md-button md-default-theme" ng-transclude="" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-scope">Primary Hue 1</span></button>
+      <button class="md-warn md-raised md-hue-2 md-button md-default-theme" ng-transclude="" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-scope">Warn Hue 2</span></button>
+      <button class="md-accent md-button md-default-theme" ng-transclude="" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-scope">Accent</span></button>
+      <button class="md-accent md-raised md-hue-3 md-button md-default-theme" ng-transclude="" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="ng-scope">Accent Hue 3</span></button>
+      <div class="label">Themed</div>
+    </section>
 
-<input name="resume" ng-model="dashboard.resume" placeholder="resume" type="text">
-{{dashboard.resume}}
+  </md-content>
+</section>
 
-<input name="website" ng-model="dashboard.website" placeholder="website" type="text">
-{{dashboard.website}}
+    <div id="profile" ng-controller="ProfileController as profile" ng-init="load(<%=@user.to_json%>)">
+	<input name="first_name" ng-model="profile.first_name" placeholder="Hactus" type="text">
+	{{profile.first_name}}
 
-<%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+	<input name="last_name" ng-model="profile.last_name" placeholder="Cactus" type="text">
+	{{profile.last_name}}
+
+	<input name="email" ng-model="profile.email" placeholder="test" type="text" required>
+	{{profile.email}}
+
+	<select name="school" ng-model="profile.school" placeholder='school' type="text" >
+	{{profile.school}}
+
+	<input name="facebook" ng-model="profile.facebook" placeholder="facebook" type="text" required>
+	{{profile.facebook}}
+
+	<input name="linkedin" ng-model="profile.linkedin" placeholder="linkedin" type="text">
+	{{profile.linkedin}}
+
+	<input name="twitter" ng-model="profile.twitter" placeholder="twitter" type="text">
+	{{profile.twitter}}
+
+	<input name="github" ng-model="profile.github" placeholder="github" type="text">
+	{{profile.github}}
+
+	<input name="resume" ng-model="profile.resume" placeholder="resume" type="text">
+	{{profile.resume}}
+
+	<input name="website" ng-model="profile.website" placeholder="website" type="text">
+	{{profile.website}}
+</div>
