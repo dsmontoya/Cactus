@@ -9,11 +9,15 @@ Rails.application.routes.draw do
   resources :forms
   get 'dashboard' => 'dashboard#index'
   get 'dashboard/profile' => 'dashboard#profile', as: :profile
+  get 'dashboard/submissions/new' => 'dashboard#form', as: :new_submission
 
 namespace :api, defaults: {format: 'json'} do
   namespace :v1 do
     resources :users do
       collection { patch :update }
+    end
+    resource :forms do
+      collection { get   :new }
     end
   end
 end

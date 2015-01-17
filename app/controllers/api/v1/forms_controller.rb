@@ -1,4 +1,6 @@
-class FormsController < ApplicationController
+module Api
+  module V1
+    class FormsController < ApiController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
   # GET /forms
@@ -26,15 +28,11 @@ class FormsController < ApplicationController
   def create
     @form = Form.new(form_params)
 
-    respond_to do |format|
       if @form.save
-        format.html { redirect_to @form, notice: 'Form was successfully created.' }
-        format.json { render :show, status: :created, location: @form }
+        head :ok
       else
-        format.html { render :new }
-        format.json { render json: @form.errors, status: :unprocessable_entity }
+        head :error
       end
-    end
   end
 
   # PATCH/PUT /forms/1
@@ -69,6 +67,12 @@ class FormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
-      params[:form]
+      form_params = params.require(:form).permit(:project, :first_hackathon, :why, :how_did_you_hear_about_us,
+                                                 :proficiencies, :sponsor_you_want_to_se, :what_do_you_want_to_learn,
+                                                 :shirt_size, :dietary_restrictions, :code_of_conduct_read, :team_id,
+                                                 :interests)
     end
+end
+
+end
 end

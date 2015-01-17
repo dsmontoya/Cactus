@@ -1,0 +1,53 @@
+<div id="form" ng-controller="FormController as form">
+<form name="form_form" novalidate>
+<!-- 
+  <input name="authenticity_token" ng-model="profile.authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+-->  
+<h2>{{submitted}}</h2>
+
+
+  <p>Is this your first hackathon?</p>
+
+  <p>Yes</p>
+  <input name="first_hackathon" ng-model="form.first_hackathon" type="radio" ng-true-value="Yes" ng-false-value="">
+  <p>No</p>
+  <input name="first_hackathon" ng-model="form.first_hackathon" type="radio" ng-true-value="No" ng-false-value="">
+
+  <p>Why Hack Arizona?</p>
+  <input name="why" ng-model="form.why" type="text">
+
+  <p>Why Hack Arizona?</p>
+  <input name="how_did_you_hear_about_us" ng-model="form.how_did_you_hear_about_us" type="text">
+
+  <p>What Sponsor Do You Want to See the Most?</p>
+  <input name="sponsor_you_want_to_see" ng-model="form.sponsor_you_want_to_see" type="text">
+
+  <p>What do you want to learn prior to the hackathon?</p>
+  <input name="what_do_you_want_to_learn" ng-model="form.what_do_you_want_to_learn" type="text">
+
+  <p>What Shirt Size Do You Need?</p>
+  <select name="shirt_size" ng-model="form.tshirt_size">
+  	<option value="Small">Small</option>
+  	<option value="Medium">Medium</option>
+  	<option value="Large">Large</option>
+  	<option value="Xtra Large">Xtra Large</option>
+  </select>
+
+  <p>Do you have an dietary restrictions?</p>
+  <input name="dietary_restrictions" ng-model="form.dietary_restrictions" type="text">
+
+  <p>Please Read the <a href="#">Code of Conduct</a></p>
+  <p>I have read the Code of Conduct</p>
+  <input name="code_of_conduct_read" ng-model="form.code_of_conduct_read" type="checkbox">
+
+  <form
+  <p>Do you have team?</p>
+  <input name="teammate_1_id" ng-model="">
+
+
+
+  <button ng-click="save(form)">Save</button>
+</form>
+</div>
+
+

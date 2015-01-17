@@ -1,11 +1,11 @@
 var app = angular.module('hacktus', []);
 
 // form controller
-app.controller("FormController", ['$scope', function($scope) {
-    $scope.application;
+app.controller("FormController", ['$scope', '$http', function($scope, $http) {
+    $scope.form;
 
     $scope.load = function(json) {
-        $scope.application = json;
+        $scope.form = json;
     };
     $scope.save = function(form) {
         return $http.post('/api/v1/forms', form).success(function(data) {

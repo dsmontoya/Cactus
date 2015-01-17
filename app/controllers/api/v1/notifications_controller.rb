@@ -1,4 +1,6 @@
-class NotificationsController < ApplicationController
+module Api
+  module V1
+    class NotificationsController < ApiController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
 
   # GET /notifications
@@ -71,4 +73,7 @@ class NotificationsController < ApplicationController
     def notification_params
       params[:notification]
     end
+end
+
+end
 end
