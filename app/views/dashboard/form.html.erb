@@ -9,70 +9,65 @@
 
 	<div layout="column">
 	  <md-content class="md-padding">
-	    <form name="form_form">
+	    <%= simple_form_for @form do |f| %>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	          <label>Is This Your First Hackathon?</label>
-	          <md-switch ng-model="form.first_hackathon" aria-label="Switch 1">
-    				First Time Hacker: {{ form.first_hackathon }}
-  				</md-switch>
+	          <%= f.input :first_hackathon, :as => :radio_buttons %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Tell Us About Your Favorite Project You Have Worked on.</label>
-	          <textarea name="project" ng-model="form.project" columns="1" md-maxlength="250"></textarea>
+	          <%= f.input_field :project %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Why Hack Arizona?</label>
-	          <textarea name="why" ng-model="form.why" columns="1" md-maxlength="250"></textarea>
+	          <%= f.input_field :why %>
 	        </md-input-container>
 	      </div>
 	      <md-input-container flex>
 	        <label>How Did You Hear About Us?</label>
-	        <textarea name="how_did_you_hear_about_us" ng-model="form.how_did_you_hear_about_us" columns="1" md-maxlength="150"></textarea>
+	        <%= f.input_field :how_did_you_hear_about_us %>
 	      </md-input-container>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	          <label>What Sponsor Do You Want to See the Most?</label>
-  			  <textarea name="sponsor_you_want_to_see" ng-model="form.sponsor_you_want_to_see" columns="1" md-maxlength="50"></textarea>
+  			<%= f.input_field :sponsor_you_want_to_see %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>What Size Shirt Do You Need?</label>
-	          <select name="tshirt" ng-model="form.tshirt_size" type="text">
-	          <option value="Small">Small</option>
-	          <option value="Medium">Medium</option>
-	          <option value="Large">Large</option>
-	          <option value="Extra Large">Xtra Large</option>
-	          </select>
+	          <%= f.input :shirt_size, collection: ["S", "M", "L", "XL"] %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Do You Have Any Dietary Restrictions?</label>
-	          <input name="dietary_restrictions" ng-model="form.dietary_restrictions" type="text">
+	          <%= f.input :dietary_restrictions %>
 	        </md-input-container>
 	      </div>
 	      <div layout layout-sm="column">
 	      	      	<p>Add your Team</p>
-
+	   	<%= f.simple_fields_for :teams do |t| %>
 	      	<md-input-container flex>
 
 	          <label>Teammate 1</label>
-	          <input name="team[0]" ng-model="form.team[0]" type="email">
+	          <%= t.input_field :teammate %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Teammate 2</label>
-	          <input name="team[1]" ng-model="form.team[1]" type="email">
+	          <%= t.input_field :teammate %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Teammate 3</label>
-	          <input name="team[2]" ng-model="form.team[2]" type="email">
+	          <%= t.input_field :teammate %>
 	        </md-input-container>
 	      </div>
+	    <% end %>
 	      
 	    </md-content>
+	    	<%= f.button :submit, class: "md-raised md-primary" %> 
 	    	<md-button class="md-raised md-primary" ng-click="save(form);showActionToast()">Submit</md-button>
 	  </form>
 	</div>
-
-		      	 <%= search_form_for @q do |f| remote: true%>
+	<% end %>
+		      	 <%= search_form_for @q do |f| %>
 	      	 	<%= f.label :email_cont %>
 	<input name="q" type="text" ng-model="form.q" ng-keypress="findUsers(form.q)">
   <%= f.submit remote: true  %>

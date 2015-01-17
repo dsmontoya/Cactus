@@ -5,9 +5,11 @@ class DashboardController < ApplicationController
 	end
 
 	def profile
+		@user = current_user
 	end
 
 	def form
+		@form = Form.new
 		@q = User.ransack(params[:q])
 		@users = @q.result(distinct: true)
 	end
