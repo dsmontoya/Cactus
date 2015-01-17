@@ -2,7 +2,7 @@ var app = angular.module('hacktus', ['ngMaterial'])
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryColor('purple')
-    .accentColor('orange');
+    .accentColor('purple');
 });
 
 // form controller

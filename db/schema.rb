@@ -13,18 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150117113630) do
 
-  create_table "dashboards", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "forms", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "project"
-    t.boolean  "first_hackathon"
-    t.text     "why"
-    t.string   "how_did_you_hear_about_us"
     t.string   "proficiencies"
     t.text     "sponsor_you_want_to_see"
     t.text     "what_do_you_want_to_learn"
