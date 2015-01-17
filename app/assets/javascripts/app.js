@@ -30,8 +30,21 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
 }]);
 
 // dashboard controller
-app.controller("DashboardController", ['$scope', '$mdToast', '$animate', function($scope, $mdToast, $animate) {
-    $scope.toastPosition = {
+app.controller("DashboardController", ['$scope', '$timeout', '$mdSidenav', '$log', '$mdToast', '$animate', function($scope, $timeout, 
+$mdSidenav, $log, $mdToast, $animate) {
+    $scope.toggleLeft = function() {
+    $mdSidenav('left').toggle()
+                      .then(function(){
+                          $log.debug("toggle left is done");
+                      });
+  };
+  $scope.toggleRight = function() {
+    $mdSidenav('right').toggle()
+                        .then(function(){
+                          $log.debug("toggle RIGHT is done");
+                        });
+  };
+$scope.toastPosition = {
         bottom: true,
         top: false,
         left: false,
@@ -65,4 +78,20 @@ app.controller("ProfileController", ['$scope', '$http', function($scope, $http) 
         });
     };
 
+}]);
+app.controller('LeftCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', function($scope, $timeout, $mdSidenav, $log) {
+  $scope.close = function() {
+    $mdSidenav('left').close()
+                      .then(function(){
+                        $log.debug("close LEFT is done");
+                      });
+  };
+}]);
+app.controller('RightCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', function($scope, $timeout, $mdSidenav, $log) {
+  $scope.close = function() {
+    $mdSidenav('right').close()
+                        .then(function(){
+                          $log.debug("close RIGHT is done");
+                        });
+  }; 
 }]);
