@@ -2,11 +2,14 @@ module Api
   module V1
     class UsersController < ApiController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
+      render :json => @users
   end
 
   # GET /users/1
@@ -71,7 +74,7 @@ module Api
       user_params = params.require(:user).permit(:age, :gender, :first_name,
                                 :last_name, :school, :facebook, :linkedin,
                                 :twitter, :github, :resume, :website, :authenticity_token,
-                                :id, :created_at, :updated_at, :email, :resumes_attributes => ['title', 'user_id', 'file', '_destroy'],
+                                :id, :created_at, :updated_at, :email, [:resumes_attributes => ['title', 'user_id', 'file', '_destroy']],
                                 :user_id, :status)
     end
 end

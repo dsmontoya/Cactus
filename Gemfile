@@ -34,6 +34,8 @@ gem 'select2-rails'
 
 gem 'carrierwave'
 gem 'fog'
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
+gem 'simple-form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
