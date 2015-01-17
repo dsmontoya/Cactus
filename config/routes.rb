@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'dashboard' => 'dashboard#index'
   get 'dashboard/profile' => 'dashboard#profile', as: :profile
   get 'dashboard/submissions/new' => 'dashboard#form', as: :new_submission
+  get 'dashboard/submissions' => 'dashboard#available_forms', as: :submissions
 
 namespace :api, defaults: {format: 'json'} do
   namespace :v1 do

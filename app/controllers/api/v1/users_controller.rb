@@ -71,7 +71,8 @@ module Api
       user_params = params.require(:user).permit(:age, :gender, :first_name,
                                 :last_name, :school, :facebook, :linkedin,
                                 :twitter, :github, :resume, :website, :authenticity_token,
-                                :id, :created_at, :updated_at, :email, :resumes_attributes => ['title', 'user_id', 'file', '_destroy'])
+                                :id, :created_at, :updated_at, :email, :resumes_attributes => ['title', 'user_id', 'file', '_destroy'],
+                                :user_id, :status)
     end
 end
 
