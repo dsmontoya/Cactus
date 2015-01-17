@@ -1,4 +1,9 @@
-var app = angular.module('hacktus', []);
+var app = angular.module('hacktus', ['ngMaterial'])
+.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryColor('purple')
+    .accentColor('orange');
+});
 
 // form controller
 app.controller("FormController", ['$scope', '$http', function($scope, $http) {
