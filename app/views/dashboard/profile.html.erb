@@ -6,19 +6,19 @@
 <h2>{{created}}</h2>
 	<div layout="column" class="container">
 	  <md-content class="md-padding">
-	    <form name="userForm">
+	    <%= simple_form_for :edit_user_path do |u|  %>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	          <label>Email</label>
-	          <input name="email" ng-model="profile.email" type="email">
+	          <%= u.input_field :email %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>First Name</label>
-	          <input name="first_name" ng-model="profile.first_name" type="text">
+	          <%= u.input_field :first_name %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Last Name</label>
-	          <input name="last_name" ng-model="profile.last_name" type="text">
+	          <%= u.input_field :last_name %>
 	        </md-input-container>
 	      </div>
 	      <md-input-container flex>
@@ -33,29 +33,29 @@
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	          <label>Facebook</label>
-	          <input name="facebook" ng-model="profile.facebook" type="text">
+	          <%= u.input_field :facebook %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Twitter</label>
-	          <input name="twitter" ng-model="profile.twitter" type="text">
+	          <%= u.input_field :twitter %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>LinkedIn</label>
-	          <input name="linkedin" ng-model="profile.linkedin" type="text">
+	          <%= u.input_field :linkedin %>
 	        </md-input-container>
 	      </div>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	          <label>GitHub</label>
-	          <input name="GitHub" ng-model="profile.github" type="text">
+	          <%= u.input_field :github %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Resume</label>
-	          <input name="resume" ng-model="profile.resume" type="text">
+	          <%= u.input_field :resume %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Website</label>
-	          <input name="website" ng-model="profile.website" type="text">
+	          <%= u.input_field :website %>
 	        </md-input-container>
 	      </div>
 	      <md-input-container flex>
@@ -64,7 +64,8 @@
 	      </md-input-container>
 	    </md-content>
 	    <md-button class="md-raised md-button" ng-click="save(profile)">Save</md-button>
-	  </form>
+	    <%= u.button :submit, "Save" %>
+	  <% end %>
 	</div>
 </form>
 </div>
