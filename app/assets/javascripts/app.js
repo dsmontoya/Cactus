@@ -73,6 +73,11 @@ $scope.toastPosition = {
 // profile controller
 app.controller("ProfileController", ['$scope', '$http', function($scope, $http) {
     $scope.profile;
+    $scope.uni;
+    $scope.listIsHidden = false;
+
+    
+
 
     $scope.load = function(json) {
         $scope.profile = json;
@@ -83,7 +88,28 @@ app.controller("ProfileController", ['$scope', '$http', function($scope, $http) 
         });
     };
 
+    $scope.loadUni = function() {
+        $http.get("/uniParsed").success(function(data, status, headers, config) {
+            $scope.uni = data;
+        }).error(function(data, status, headers, config) {
+            alert('fail');
+        });
+    };
+
+    $scope.setSchool = function(name) {
+        $scope.profile.school = name;
+        $scope.listIsHidden = true;
+    };
+
+    $scope.hideSchool = function() {
+        $scope.hideSchools = true;
+    };
+
+    $scope.showSchool = function() {
+        $scope.listIsHidden = false;
+    };
 }]);
+
 app.controller('LeftCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', function($scope, $timeout, $mdSidenav, $log) {
   $scope.close = function() {
     $mdSidenav('left').close()

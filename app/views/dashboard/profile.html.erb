@@ -1,10 +1,9 @@
-<div id="profile" ng-controller="ProfileController as profile" ng-init="load(<%=@user.to_json%>)">
+<div id="profile" ng-controller="ProfileController as profile" ng-init="load(<%=@user.to_json%>); loadUni()">
 <form name="profile_form" novalidate>
-<!-- 
+<!--
 	<input name="authenticity_token" ng-model="profile.authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
--->  
+-->
 <h2>{{created}}</h2>
-
 	<div layout="column" class="container">
 	  <md-content class="md-padding">
 	    <form name="userForm">
@@ -24,7 +23,12 @@
 	      </div>
 	      <md-input-container flex>
 	        <label>School</label>
-	        <input ng-model="profile.school">
+	        <input ng-model="profile.school" ng-keypress="showSchool()">
+	    		<li ng-repeat="university in uni | filter:profile.school | 		limitTo:5" 
+	    			ng-click="setSchool(university.universityName)"
+	    			ng-hide="listIsHidden" class="ng-hide">
+	      			{{university.universityName}}
+	    		</li>
 	      </md-input-container>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
@@ -64,5 +68,3 @@
 	</div>
 </form>
 </div>
-
-
