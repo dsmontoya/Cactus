@@ -1,53 +1,72 @@
 <div id="form" ng-controller="FormController as form">
-<form name="form_form" novalidate>
+<form name="formForm" novalidate>
 <!-- 
   <input name="authenticity_token" ng-model="profile.authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 -->  
 <h2>{{submitted}}</h2>
 
 
-  <p>Is this your first hackathon?</p>
 
-  <p>Yes</p>
-  <input name="first_hackathon" ng-model="form.first_hackathon" type="radio" ng-true-value="Yes" ng-false-value="">
-  <p>No</p>
-  <input name="first_hackathon" ng-model="form.first_hackathon" type="radio" ng-true-value="No" ng-false-value="">
+	<div layout="column">
+	  <md-content class="md-padding">
+	    <form name="form_form">
+	      <div layout layout-sm="column">
+	      	<md-input-container flex>
+	          <label>Is This Your First Hackathon?</label>
+	          <md-switch ng-model="form.first_hackathon" aria-label="Switch 1">
+    				First Time Hacker: {{ form.first_hackathon }}
+  				</md-switch>
+	        </md-input-container>
+	        <md-input-container flex>
+	          <label>Tell Us About Your Favorite Project You Have Worked on.</label>
+	          <textarea name="project" ng-model="form.project" columns="1" md-maxlength="250"></textarea>
+	        </md-input-container>
+	        <md-input-container flex>
+	          <label>Why Hack Arizona?</label>
+	          <textarea name="why" ng-model="form.why" columns="1" md-maxlength="250"></textarea>
+	        </md-input-container>
+	      </div>
+	      <md-input-container flex>
+	        <label>How Did You Hear About Us?</label>
+	        <input nameng-model="how_did_you_hear_about_us">
+	      </md-input-container>
+	      <div layout layout-sm="column">
+	      	<md-input-container flex>
+	          <label>Facebook</label>
+	          <input name="facebook" ng-model="profile.facebook" type="text">
+	        </md-input-container>
+	        <md-input-container flex>
+	          <label>Twitter</label>
+	          <input name="twitter" ng-model="profile.twitter" type="text">
+	        </md-input-container>
+	        <md-input-container flex>
+	          <label>LinkedIn</label>
+	          <input name="linkedin" ng-model="profile.linkedin" type="text">
+	        </md-input-container>
+	      </div>
+	      <div layout layout-sm="column">
+	      	<md-input-container flex>
+	          <label>GitHub</label>
+	          <input name="GitHub" ng-model="profile.github" type="text">
+	        </md-input-container>
+	        <md-input-container flex>
+	          <label>Resume</label>
+	          <input name="resume" ng-model="profile.resume" type="text">
+	        </md-input-container>
+	        <md-input-container flex>
+	          <label>Website</label>
+	          <input name="website" ng-model="profile.website" type="text">
+	        </md-input-container>
+	      </div>
+	      <md-input-container flex>
+	        <label>Biography</label>
+	        <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
+	      </md-input-container>
+	    </md-content>
+	    	<md-button class="md-raised md-primary" ng-click="save(form)">Submit</md-button>
+	  </form>
+	</div>
 
-  <p>Why Hack Arizona?</p>
-  <input name="why" ng-model="form.why" type="text">
-
-  <p>Why Hack Arizona?</p>
-  <input name="how_did_you_hear_about_us" ng-model="form.how_did_you_hear_about_us" type="text">
-
-  <p>What Sponsor Do You Want to See the Most?</p>
-  <input name="sponsor_you_want_to_see" ng-model="form.sponsor_you_want_to_see" type="text">
-
-  <p>What do you want to learn prior to the hackathon?</p>
-  <input name="what_do_you_want_to_learn" ng-model="form.what_do_you_want_to_learn" type="text">
-
-  <p>What Shirt Size Do You Need?</p>
-  <select name="shirt_size" ng-model="form.tshirt_size">
-  	<option value="Small">Small</option>
-  	<option value="Medium">Medium</option>
-  	<option value="Large">Large</option>
-  	<option value="Xtra Large">Xtra Large</option>
-  </select>
-
-  <p>Do you have an dietary restrictions?</p>
-  <input name="dietary_restrictions" ng-model="form.dietary_restrictions" type="text">
-
-  <p>Please Read the <a href="#">Code of Conduct</a></p>
-  <p>I have read the Code of Conduct</p>
-  <input name="code_of_conduct_read" ng-model="form.code_of_conduct_read" type="checkbox">
-
-  <form
-  <p>Do you have team?</p>
-  <input name="teammate_1_id" ng-model="">
-
-
-
-  <button ng-click="save(form)">Save</button>
-</form>
-</div>
-
-
+<md-button ng-click="showSimpleToast()">
+        Show Simple
+      </md-button>
