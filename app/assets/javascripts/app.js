@@ -89,7 +89,12 @@ app.controller("ProfileController", ['$scope', '$http', function($scope, $http) 
             alert('fail');
         });
     };
+
+    $scope.setSchool = function(name) {
+        $scope.profile.school = name;
+    };
 }]);
+
 app.controller('LeftCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', function($scope, $timeout, $mdSidenav, $log) {
   $scope.close = function() {
     $mdSidenav('left').close()

@@ -24,7 +24,7 @@
 	      <md-input-container flex>
 	        <label>School</label>
 	        <input ng-model="profile.school">
-	    		<li ng-repeat="university in uni | filter:profile.school">
+	    		<li ng-repeat="university in uni | filter:profile.school | limitTo:5" ng-click="setSchool(university.universityName)">
 	      			{{university.universityName}}
 	    		</li>
 	      </md-input-container>
