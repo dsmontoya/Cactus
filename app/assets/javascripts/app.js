@@ -9,3 +9,13 @@ app.controller("FormController", ['$scope', function($scope) {
     };
 
 }]);
+
+// dashboard controller
+app.controller("DashboardController", ['$scope', function($scope) {
+    $scope.dashboard;
+
+    $scope.load = function(json) {
+        $scope.dashboard = json;
+    };
+
+}]);

@@ -1,0 +1,31 @@
+<input name="first_name" ng-model="dashboard.first_name" placeholder="Hactus" type="text">
+{{dashboard.first_name}}
+
+<input name="last_name" ng-model="dashboard.last_name" placeholder="Cactus" type="text">
+{{dashboard.last_name}}
+
+<input name="email" ng-model="dashboard.email" placeholder="test" type="text" required>
+{{dashboard.email}}
+
+<select name="school" ng-model="dashboard.school" placeholder='school' type="text" >
+{{dashboard.school}}
+
+<input name="facebook" ng-model="dashboard.facebook" placeholder="facebook" type="text" required>
+{{dashboard.facebook}}
+
+<input name="linkedin" ng-model="dashboard.linkedin" placeholder="linkedin" type="text">
+{{dashboard.linkedin}}
+
+<input name="twitter" ng-model="dashboard.twitter" placeholder="twitter" type="text">
+{{dashboard.email}}
+
+<input name="github" ng-model="dashboard.github" placeholder="github" type="text">
+{{dashboard.github}}
+
+<input name="resume" ng-model="dashboard.resume" placeholder="resume" type="text">
+{{dashboard.resume}}
+
+<input name="website" ng-model="dashboard.website" placeholder="website" type="text">
+{{dashboard.website}}
+
+<%= link_to "Logout", destroy_user_session_path, :method => :delete %>
