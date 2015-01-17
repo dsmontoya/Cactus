@@ -1,7 +1,8 @@
-<h2>Log in</h2>
-<div layout="column">
+<br><br><div layout="column" layout-align="center center" class="devise">
+<h2>Login</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <md-content class="md-padding">
+    <md-content class="md-padding md-whiteframe-z1 modal">
+    <%= devise_error_messages! %>
       <div layout="column">
         <md-input-container flex>
           <label>Email</label>
@@ -12,7 +13,10 @@
          <%= f.password_field :password, autocomplete: "off" %>
         </md-input-container>
         <md-button class="md-raised md-primary">Login</md-button>
-      <% end %>
+      </div>
+      <br>
+    </md-content>
+  <% end %>
+  <br><%= render "devise/shared/links" %>
   </div>
-
-<%= render "devise/shared/links" %>
+</div>
