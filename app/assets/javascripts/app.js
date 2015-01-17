@@ -27,15 +27,18 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
                 .hideDelay(0)
     )};
     $scope.findUsers = function(query) {
-        $http.get('/api/v1/users', query).success(function(data) {
+
+        $http.post('/api/v1/users', JSON.stringify(query)).success(function(data) {
             $scope.results = data;
+        }).error(function() {
+          alert('error in findUsers');
         });
-    }
+    };
 
 }]);
 
 // dashboard controller
-app.controller("DashboardController", ['$scope', '$timeout', '$mdSidenav', '$log', '$mdToast', '$animate', function($scope, $timeout, 
+app.controller("DashboardController", ['$scope', '$timeout', '$mdSidenav', '$log', '$mdToast', '$animate', function($scope, $timeout,
 $mdSidenav, $log, $mdToast, $animate) {
     $scope.toggleLeft = function() {
     $mdSidenav('left').toggle()
@@ -107,7 +110,7 @@ app.controller("ProfileController", ['$scope', '$http', function($scope, $http) 
     $scope.uni;
     $scope.listIsHidden = false;
 
-    
+
 
 
     $scope.load = function(json) {
@@ -155,5 +158,5 @@ app.controller('RightCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', functio
                         .then(function(){
                           $log.debug("close RIGHT is done");
                         });
-  }; 
+  };
 }]);
