@@ -5,6 +5,7 @@ html, body {
 	max-width: 864px;
 	margin: 0 auto;
 }
+<<<<<<< HEAD
 .modal {
 	width: 360px;
 }
@@ -15,4 +16,10 @@ html, body {
 }
 .devise h2 {
 	font-weight: 400;
+=======
+
+.event-card {
+	width: 250px;
+	height: auto;
+>>>>>>> 4dd158acf7e0557ad7af3cbd37a0570889357591
 }

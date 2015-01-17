@@ -15,10 +15,17 @@
             <h3>
                 <span>Hack Arizona</span>
             </h3>
+            <div>
+          <md-button ng-click="toggleRight()" class="md-primary">
+            Account
+          </md-button>
         </div>
+        </div>
+
     </md-toolbar>
 </header>
 
+<<<<<<< HEAD
 <md-tabs class="md-accent">
   <md-tab>
     Profile
@@ -30,6 +37,41 @@
     Teams
   </md-tab>
 </md-tabs>
+=======
+<md-tabs class="md-accent" md-selected="data.selectedIndex">
+      <md-tab id="tab1" aria-controls="tab1-content">
+        New application
+      </md-tab>
+      <md-tab id="tab2" aria-controls="tab2-content" ng-disabled="data.secondLocked">
+        View Application Status
+      </md-tab>
+      <md-tab id="tab3" aria-controls="tab2-content" ng-disabled="data.secondLocked">
+        Team
+      </md-tab>
+    </md-tabs>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Your Account</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" class="md-padding">
+      <ul style="list-style:none">
+        <li><%= link_to "Logout", logout_path(@user), class: 'md-primary'%></li>
+          Logout
+        </md-button></li>
+        <li><md-button ng-click="close()" class="md-primary">
+          Help
+        </md-button></li>
+        <li><md-button ng-click="close()" class="md-primary">
+          Contact
+        </md-button></li>
+      </ul>
+      </md-content>
+    </md-sidenav>
+  </section>
+</div>
+
+>>>>>>> 4dd158acf7e0557ad7af3cbd37a0570889357591
 <%= yield %>
 
 <!-- Angular Material Dependencies -->
