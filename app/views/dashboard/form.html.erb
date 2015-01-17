@@ -55,15 +55,15 @@
 	      	<md-input-container flex>
 
 	          <label>Teammate 1</label>
-	          <input name="team[0]" ng-model="form.team[0]" type="text">
+	          <input name="team[0]" ng-model="form.team[0]" type="email">
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Teammate 2</label>
-	          <input name="team[1]" ng-model="form.team[1]" type="text">
+	          <input name="team[1]" ng-model="form.team[1]" type="email">
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Teammate 3</label>
-	          <input name="team[2]" ng-model="form.team[2]" type="text">
+	          <input name="team[2]" ng-model="form.team[2]" type="email">
 	        </md-input-container>
 	      </div>
 	      
@@ -71,3 +71,9 @@
 	    	<md-button class="md-raised md-primary" ng-click="save(form);showActionToast()">Submit</md-button>
 	  </form>
 	</div>
+
+		      	 <%= search_form_for @q do |f| remote: true%>
+	      	 	<%= f.label :email_cont %>
+	<input name="q" type="text" ng-model="form.q" ng-keypress="findUsers(form.q)">
+  <%= f.submit remote: true  %>
+<% end %>

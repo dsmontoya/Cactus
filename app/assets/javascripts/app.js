@@ -26,6 +26,11 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
                 .position($scope.getToastPosition())
                 .hideDelay(0)
     )};
+    $scope.findUsers = function(query) {
+        $http.get('/api/v1/users', query).success(function(data) {
+            $scope.results = data;
+        });
+    }
 
 }]);
 

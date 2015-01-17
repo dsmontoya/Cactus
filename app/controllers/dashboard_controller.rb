@@ -8,6 +8,8 @@ class DashboardController < ApplicationController
 	end
 
 	def form
+		@q = User.ransack(params[:q])
+		@users = @q.result(distinct: true)
 	end
 
 	def available_forms
