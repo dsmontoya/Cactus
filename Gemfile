@@ -31,6 +31,9 @@ gem 'spring',        group: :development
 gem 'devise'
 
 gem 'select2-rails'
+
+gem 'carrierwave'
+gem 'fog'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

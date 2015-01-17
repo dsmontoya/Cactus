@@ -21,15 +21,22 @@
 
 <md-tabs class="md-accent" md-selected="data.selectedIndex">
       <md-tab id="tab1" aria-controls="tab1-content">
-        My Application
+        My Profile
       </md-tab>
       <md-tab id="tab2" aria-controls="tab2-content" ng-disabled="data.secondLocked">
+        My Applications
+      </md-tab>
+      <md-tab id="tab3" aria-controls="tab2-content" ng-disabled="data.secondLocked">
         Teams
       </md-tab>
-      <md-tab id="tab3" aria-controls="tab3-content">
+      <md-tab id="tab4" aria-controls="tab3-content">
         Applicants
       </md-tab>
     </md-tabs>
+    <%= link_to "Logout", logout_path %>
+
+
+
 <%= yield %>
 
 <!-- Angular Material Dependencies -->

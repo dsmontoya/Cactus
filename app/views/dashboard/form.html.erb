@@ -32,7 +32,7 @@
 	      </md-input-container>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
-	          <p>What Sponsor Do You Want to See the Most?</p>
+	          <label>What Sponsor Do You Want to See the Most?</label>
   			  <textarea name="sponsor_you_want_to_see" ng-model="form.sponsor_you_want_to_see" columns="1" md-maxlength="50"></textarea>
 	        </md-input-container>
 	        <md-input-container flex>
@@ -66,8 +66,3 @@
 	    	<md-button class="md-raised md-primary" ng-click="save(form);showActionToast()">Submit</md-button>
 	  </form>
 	</div>
-
-	<select class="select2">
-        <option value="AL">Alabama</option>
-        <option value="WY">Wyoming</option>
-    </select>
