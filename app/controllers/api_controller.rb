@@ -1,5 +1,5 @@
 class ApiController < ApplicationController
-	before_filter :api_preparations
+	before_filter :api_preparation
 
 
 	def api_preparation

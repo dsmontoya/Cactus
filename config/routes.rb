@@ -6,10 +6,23 @@ Rails.application.routes.draw do
                                       :unlocks       => 'users/unlocks'}
   root to: "home#index"
   resources :notifications
-
   resources :forms
-
   get 'dashboard' => 'dashboard#index'
+  get 'dashboard/profile' => 'dashboard#profile', as: :profile
+
+namespace :api, defaults: {format: 'json'} do
+  namespace :v1 do
+    resources :users do
+      collection { patch :update }
+    end
+  end
+end
+
+devise_scope :user do
+  get 'login' => 'users/sessions#new'
+  get 'logout' => 'users/sessions#destroy'
+  get 'signup' => 'users/registrations#new'
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
