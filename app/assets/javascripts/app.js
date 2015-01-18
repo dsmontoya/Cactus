@@ -1,8 +1,14 @@
-var app = angular.module('hacktus', ['ngMaterial'])
-.config(function($mdThemingProvider) {
+var app = angular.module("cactus", ['ngMaterial']).run(['$compile', '$rootScope', '$document', function($compile, $rootScope, $document) {
+    return $document.on('page:load', function() {
+        var body, compiled;
+        body = angular.element('body');
+        compiled = $compile(body.html())($rootScope);
+        return body.html(compiled);
+    });
+}]).config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryColor('purple')
-    .accentColor('purple');
+    .primaryColor('teal')
+    .accentColor('teal');
 });
 
 // form controller

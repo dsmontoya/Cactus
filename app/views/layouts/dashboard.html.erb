@@ -1,39 +1,29 @@
 <!DOCTYPE html>
-<html ng-app="hacktus">
+<html ng-app="cactus">
 <head>
-  <title>HactusApp</title>
+  <title>Cactus</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <!-- Angulars Material CSS now available via Google CDN; version 0.6 used here -->
-  <link rel="stylesheet" href="//rawgit.com/angular/bower-material/master/angular-material.css">
 </head>
 <body ng-controller="DashboardController as dashboard">
 <header>
     <md-toolbar scroll-shrink layout="row">
         <div class="md-toolbar-tools">
             <h3>
-                <span>Hack Arizona</span>
+                <span>Cactus</span>
             </h3>
             <div>
-          <md-button ng-click="toggleRight()" class="md-button" style="float: right;">
-            Account
-          </md-button>
+
         </div>
         </div>
 
     </md-toolbar>
 </header>
 <md-tabs class="md-accent">
-  <md-tab>
-    Applications
-  </md-tab>
-  <md-tab>
-    Profile
-  </md-tab>
-  <md-tab>
-    Teams
-  </md-tab>
+<%= nav_link raw('<md-tab>Profile</md-tab>'), profile_path %>
+<%= nav_link raw('<md-tab>Application</md-tab>'), new_submission_path %>
+<%= nav_link raw('<md-tab>Team</md-tab>'), profile_path %>
 </md-tabs>
 
 <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
@@ -50,15 +40,8 @@
 </md-sidenav>
 </section>
 </div>
+<br><br>
 <%= yield %>
-
-<!-- Angular Material Dependencies -->
-<script src="//cdn.jsdelivr.net/hammerjs/2.0.4/hammer.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-route.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.js"></script>
-
-<!-- Angular Material Javascript using RawGit to load directly from `bower-material/master` -->
-<script src="//rawgit.com/angular/bower-material/master/angular-material.js"></script>
+<br><br>
 </body>
 </html>

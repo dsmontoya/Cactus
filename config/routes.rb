@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   resources :forms
   get 'dashboard' => 'dashboard#index'
   get 'dashboard/profile' => 'dashboard#profile', as: :profile
-  get 'dashboard/submissions/new' => 'dashboard#form', as: :new_submission
-  get 'dashboard/submissions' => 'dashboard#available_forms', as: :submissions
+  post 'dashboard/profile' => 'dashboard#profile', as: :update_profile
+  get 'dashboard/applications/new' => 'dashboard#form', as: :new_submission
+  get 'dashboard/applications' => 'dashboard#available_forms', as: :submissions
 
   get 'users' => 'api/v1/users#index', as: :users
 

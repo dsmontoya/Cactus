@@ -1,6 +1,9 @@
 html, body {
 	background: #edeef0 !important;
 }
+a {
+	text-decoration: none;
+}
 .container {
 	max-width: 864px;
 	margin: 0 auto;
@@ -15,8 +18,4 @@ html, body {
 }
 .devise h2 {
 	font-weight: 400;
-}
-.event-card {
-	width: 250px;
-	height: auto;
 }

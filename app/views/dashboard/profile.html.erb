@@ -1,18 +1,10 @@
-<div id="profile" ng-controller="ProfileController as profile" ng-init="load(<%=@user.to_json%>); loadUni()">
-<form name="profile_form" novalidate>
-<!--
-	<input name="authenticity_token" ng-model="profile.authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
--->
-<h2>{{created}}</h2>
-	<div layout="column" class="container">
+<div id="profile" ng-controller="ProfileController as profile">
+<div class="container">
+<div layout="column" class="md-whiteframe-z1">
 	  <md-content class="md-padding">
 	    <%= simple_form_for :edit_user_path do |u|  %>
 	      <div layout layout-sm="column">
-	      	<md-input-container flex>
-	          <label>Email</label>
-	          <%= u.input_field :email %>
-	        </md-input-container>
-	        <md-input-container flex>
+	      <md-input-container flex>
 	          <label>First Name</label>
 	          <%= u.input_field :first_name %>
 	        </md-input-container>
@@ -20,16 +12,16 @@
 	          <label>Last Name</label>
 	          <%= u.input_field :last_name %>
 	        </md-input-container>
-	      </div>
+	    </div>
 	      <md-input-container flex>
 	        <label>School</label>
 	        <input ng-model="profile.school" ng-keypress="showSchool()">
-	    		<li ng-repeat="university in uni | filter:profile.school | 		limitTo:5" 
-	    			ng-click="setSchool(university.universityName)"
-	    			ng-hide="listIsHidden" class="ng-hide">
-	      			{{university.universityName}}
-	    		</li>
 	      </md-input-container>
+	      <li ng-repeat="university in uni | filter:profile.school | limitTo:5" 
+				ng-click="setSchool(university.universityName)"
+				ng-hide="listIsHidden" class="ng-hide">
+	  			{{university.universityName}}
+			</li>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	          <label>Facebook</label>
@@ -39,16 +31,18 @@
 	          <label>Twitter</label>
 	          <%= u.input_field :twitter %>
 	        </md-input-container>
-	        <md-input-container flex>
+	      </div>
+	      <div layout layout-sm="column">
+	      	<md-input-container flex>
 	          <label>LinkedIn</label>
 	          <%= u.input_field :linkedin %>
 	        </md-input-container>
-	      </div>
-	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	          <label>GitHub</label>
 	          <%= u.input_field :github %>
 	        </md-input-container>
+	    </div>
+	    <div layout layout-sm="column">
 	        <md-input-container flex>
 	          <label>Resume</label>
 	          <%= u.input_field :resume %>
@@ -58,14 +52,9 @@
 	          <%= u.input_field :website %>
 	        </md-input-container>
 	      </div>
-	      <md-input-container flex>
-	        <label>Biography</label>
-	        <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
-	      </md-input-container>
 	    </md-content>
-	    <md-button class="md-raised md-button" ng-click="save(profile)">Save</md-button>
-	    <%= u.button :submit, "Save" %>
-	  <% end %>
 	</div>
-</form>
-</div>
+	<br><button class="md-raised md-button"><span class="ng-scope">Save Profile</span></button>
+	</div>
+    <% end %>
+    </div>

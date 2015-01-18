@@ -1,45 +1,34 @@
 <div id="form" ng-controller="FormController as form">
-<form name="formForm" novalidate>
-<!-- 
-  <input name="authenticity_token" ng-model="profile.authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
--->  
-<h2>{{submitted}}</h2>
-
-
-
-	<div layout="column">
+	<div class="container">
+	<div layout="column" class="container md-whiteframe-z1">
 	  <md-content class="md-padding">
-	    <%= simple_form_for @form do |f| %>
+	    <%= simple_form_for :new_form_path do |f| %>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
-	          <label>Is This Your First Hackathon?</label>
-	          <%= f.input :first_hackathon, :as => :radio_buttons %>
-	        </md-input-container>
-	        <md-input-container flex>
-	          <label>Tell Us About Your Favorite Project You Have Worked on.</label>
-	          <%= f.input_field :project %>
-	        </md-input-container>
-	        <md-input-container flex>
-	          <label>Why Hack Arizona?</label>
-	          <%= f.input_field :why %>
+	          <%= f.input :first_hackathon, :as => :radio_buttons, :label => "Is This Your First Hackathon?" %>
 	        </md-input-container>
 	      </div>
+	      <div layout layout-sm="column">
 	      <md-input-container flex>
 	        <label>How Did You Hear About Us?</label>
-	        <%= f.input_field :how_did_you_hear_about_us %>
+	        <%= f.text_area :how_did_you_hear_about_us %>
 	      </md-input-container>
+	  	</div>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	          <label>What Sponsor Do You Want to See the Most?</label>
-  			<%= f.input_field :sponsor_you_want_to_see %>
+  			<%= f.text_area :sponsor_you_want_to_see %>
 	        </md-input-container>
+	    </div>
+	    <div layout layout-sm="column">
 	        <md-input-container flex>
-	          <label>What Size Shirt Do You Need?</label>
-	          <%= f.input :shirt_size, collection: ["S", "M", "L", "XL"] %>
+	          <%= f.input :shirt_size, collection: ["S", "M", "L", "XL"], :label => "What's Your Shirt Size?" %>
 	        </md-input-container>
+	    </div>
+	    <div layout layout-sm="column">
 	        <md-input-container flex>
 	          <label>Do You Have Any Dietary Restrictions?</label>
-	          <%= f.input :dietary_restrictions %>
+	          <%= f.input :dietary_restrictions, :label => false %>
 	        </md-input-container>
 	      </div>
 	      <div layout layout-sm="column">
@@ -62,11 +51,11 @@
 	    <% end %>
 	      
 	    </md-content>
-	    	<%= f.button :submit, class: "md-raised md-primary" %> 
-	    	<md-button class="md-raised md-primary" ng-click="save(form);showActionToast()">Submit</md-button>
-	  </form>
 	</div>
+		    	<md-button class="md-raised md-primary" ng-click="save(form);showActionToast()">Submit</md-button>
+
 	<% end %>
+</div>
 		      	 <%= search_form_for @q do |f| %>
 	      	 	<%= f.label :email_cont %>
 	<input name="q" type="text" ng-model="form.q" ng-keypress="findUsers(form.q)">
