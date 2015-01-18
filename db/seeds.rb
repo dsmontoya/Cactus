@@ -9,10 +9,16 @@
 proj = ["The next biggest thing", "Terrible, terrible idea"]
 hack = [true, false]
 why = ["Hackthons are the future!"]
-userId = [5432,231214]
+userId = [,]
 conduct = [false, true]
 first = ["Travis", "Ian", "Jordan", "Nick", "Bijan"]
 last = ["Tracey", "Morin", "Singer", "Woodrow", "Anjavi"]
+proficiency = ["C", "C#", "C++", "D", "Java", "Ruby", "HTML"]
+sponsor = ["Google", "NeXt", "Verizon", "Illuminati"]
+learn = ["STOKED TO LEARN ABOUT COFFEE.", "Water is cool!"]
+shirt = ["S", "M", "L", "XL"]
+dietary = ["Avocado makes me die", "Peanut Butter makes me die"]
+interest = ["Pie", "Problems of utmost difficulty"]
 
 # helper method for getting a random value from array
 def ss(some_array)
@@ -26,5 +32,12 @@ end
 		:first_hackathon => ss(hack),
 		:why => ss(why),
 		:user_id => ss(userId),
-		:code_of_conduct_read => ss(conduct))
+		:code_of_conduct_read => ss(conduct)
+		:proficiencies => ss(proficiency)
+		:sponsor_you_want_to_see => ss(sponsor)
+		:what_do_you_want_to_learn => ss(learn)
+		:shirt_size => ss(shirt)
+		:dietary_restrictions => ss(dietary)
+		:interests => ss(interest))
+	
 }
