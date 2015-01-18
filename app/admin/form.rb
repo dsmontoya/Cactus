@@ -23,6 +23,6 @@ ActiveAdmin.register Form do
       column "First Hackathon", :first_hackathon
       column "Interests", :interests
       column "Proficiences", :proficiences
-      column "Status", helper.human_readable_status(:status)
+      column("Status") { |form| human_readable_status(form.status) }
   end
 end

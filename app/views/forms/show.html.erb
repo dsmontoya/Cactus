@@ -6,6 +6,8 @@
 
 	  <md-content class="md-padding">
 	  	  <h2>Hack Arizona Form #<%= @form.id %></h2>
+	  	  <h4>Status: <%= human_readable_status(@form.status)%></h4>
+	  
 	  	  <hr />
 	  	  <h3>Applicant Information</h3>
 	  	  <div layout layout-sm="column">
