@@ -1,4 +1,6 @@
-class UsersController < ApplicationController
+module Api
+  module V1
+    class UsersController < ApiController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   respond_to :json
 
@@ -52,11 +54,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
       if @user.update(user_params)
-       flash[:success] = "Profile Updated!"  
-       redirect_to :back
+       head :ok 
       else
-       flash[:error] = "Something Went Wrong"
-       redirect_to :back
+       head :error 
       end
   end
 
@@ -82,6 +82,9 @@ class UsersController < ApplicationController
                                 :last_name, :school, :facebook, :linkedin,
                                 :twitter, :github, :resume, :website, :authenticity_token,
                                 :id, :created_at, :updated_at, :email, [:resumes_attributes => ['title', 'user_id', 'file', '_destroy']],
-                                :user_id, :status, :team_id)
+                                :user_id, :status)
     end
+end
+
+end
 end

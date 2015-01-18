@@ -26,8 +26,11 @@ class FormsController < ApplicationController
   def create
     @form = Form.new(form_params)
       if @form.save
+        @team = Team.create!(:teammates => params['team']["teammates"].to_a)
+        @form.update_attributes(:team_id => @team.id)
+        User.find(current_user.id).update_attributes(:team_id => @team.id)
         flash[:success] = "Form Submitted"
-        redirect_to :form 
+        redirect_to :back
       else
         flash[:error] = "Something went wrong"
         redirect_to :new_submission
