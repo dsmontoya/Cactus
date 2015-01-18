@@ -1,71 +1,69 @@
-<div id="profile" ng-controller="ProfileController as profile" ng-init="load(<%=@user.to_json%>); loadUni()">
+<div id="profile" ng-controller="ProfileController as profile" ng-init="load(<%=@user.to_json%>)">
 <form name="profile_form" novalidate>
-<!--
+<!-- 
 	<input name="authenticity_token" ng-model="profile.authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
--->
+-->  
 <h2>{{created}}</h2>
 	<div layout="column" class="container">
-	  <md-content class="md-padding">
-	    <%= simple_form_for :edit_user_path do |u|  %>
+		<div class="md-whiteframe-z1">
+	  	  <md-content class="md-padding"><md-progress-linear md-mode="determinate" ng-value="50" class="md-accent"></md-progress-linear><br>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	          <label>Email</label>
-	          <%= u.input_field :email %>
+	          <input name="email" ng-model="profile.email" type="email">
 	        </md-input-container>
-	        <md-input-container flex>
+	      </div>
+	      <div layout layout-sm="column">
+	       <md-input-container flex>
 	          <label>First Name</label>
-	          <%= u.input_field :first_name %>
+	          <input name="first_name" ng-model="profile.first_name" type="text">
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Last Name</label>
-	          <%= u.input_field :last_name %>
+	          <input name="last_name" ng-model="profile.last_name" type="text">
 	        </md-input-container>
-	      </div>
+	    </div>
 	      <md-input-container flex>
 	        <label>School</label>
-	        <input ng-model="profile.school" ng-keypress="showSchool()">
-	    		<li ng-repeat="university in uni | filter:profile.school | 		limitTo:5" 
-	    			ng-click="setSchool(university.universityName)"
-	    			ng-hide="listIsHidden" class="ng-hide">
-	      			{{university.universityName}}
-	    		</li>
+	        <input ng-model="profile.school">
 	      </md-input-container>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	          <label>Facebook</label>
-	          <%= u.input_field :facebook %>
+	          <input name="facebook" ng-model="profile.facebook" type="text">
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Twitter</label>
-	          <%= u.input_field :twitter %>
-	        </md-input-container>
-	        <md-input-container flex>
-	          <label>LinkedIn</label>
-	          <%= u.input_field :linkedin %>
+	          <input name="twitter" ng-model="profile.twitter" type="text">
 	        </md-input-container>
 	      </div>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
-	          <label>GitHub</label>
-	          <%= u.input_field :github %>
+	          <label>LinkedIn</label>
+	          <input name="linkedin" ng-model="profile.linkedin" type="text">
 	        </md-input-container>
-	        <md-input-container flex>
+	      	<md-input-container flex>
+	          <label>GitHub</label>
+	          <input name="GitHub" ng-model="profile.github" type="text">
+	        </md-input-container>
+	      </div>
+	      <div layout layout-sm="column">
+	      	 <md-input-container flex>
 	          <label>Resume</label>
-	          <%= u.input_field :resume %>
+	          <input name="resume" ng-model="profile.resume" type="text">
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Website</label>
-	          <%= u.input_field :website %>
+	          <input name="website" ng-model="profile.website" type="text">
 	        </md-input-container>
 	      </div>
-	      <md-input-container flex>
-	        <label>Biography</label>
-	        <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
-	      </md-input-container>
 	    </md-content>
-	    <md-button class="md-raised md-button" ng-click="save(profile)">Save</md-button>
-	    <%= u.button :submit, "Save" %>
-	  <% end %>
+		</div>
+	    <br><br><md-button class="md-raised md-button" ng-click="save(profile)">Save</md-button><br><br>
+	  </form>
 	</div>
+
 </form>
 </div>
+
+

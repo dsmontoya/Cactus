@@ -17,6 +17,9 @@ class DashboardController < ApplicationController
 	def available_forms
 	end
 
+	def available_forms
+	end
+
 	private
 	def set_user
 		@user = current_user
