@@ -1,62 +1,62 @@
 <div id="profile" ng-controller="ProfileController as profile">
 <div class="container">
 <div layout="column" class="md-whiteframe-z1">
-	  <md-content class="md-padding">
-	    <%= simple_form_for @user, :controller => 'users', :action => 'update' do |u| %> 
-	      <div layout layout-sm="column">
-	      <md-input-container flex>
-	          <label>First Name</label>
-	          <%= u.input_field :first_name %>
-	        </md-input-container>
-	        <md-input-container flex>
-	          <label>Last Name</label>
-	          <%= u.input_field :last_name %>
-	        </md-input-container>
-	    </div>
-	      <md-input-container flex>
-	        <label>School</label>
-	        <input ng-model="profile.school" ng-keypress="showSchool()">
-	      </md-input-container>
-	      <li ng-repeat="university in uni | filter:profile.school | limitTo:5" 
-				ng-click="setSchool(university.universityName)"
-				ng-hide="listIsHidden" class="ng-hide">
-	  			{{university.universityName}}
-			</li>
-	      <div layout layout-sm="column">
-	      	<md-input-container flex>
-	          <label>Facebook</label>
-	          <%= u.input_field :facebook %>
-	        </md-input-container>
-	        <md-input-container flex>
-	          <label>Twitter</label>
-	          <%= u.input_field :twitter %>
-	        </md-input-container>
-	      </div>
-	      <div layout layout-sm="column">
-	      	<md-input-container flex>
-	          <label>LinkedIn</label>
-	          <%= u.input_field :linkedin %>
-	        </md-input-container>
-	      	<md-input-container flex>
-	          <label>GitHub</label>
-	          <%= u.input_field :github %>
-	        </md-input-container>
-	    </div>
-	    <div layout layout-sm="column">
-	        <md-input-container flex>
-	          <label>Resume</label>
-	          <%= u.input_field :resume %>
-	        </md-input-container>
-	        <md-input-container flex>
-	          <label>Website</label>
-	          <%= u.input_field :website %>
-	        </md-input-container>
-	      </div>
-	    <div layout layout-sm="column">
-	    </div>
-	    </md-content>
-	</div>
-	<br><button class="md-raised md-button"><span class="ng-scope">Save Profile</span></button>
-	</div>
-    <% end %>
+  <md-content class="md-padding">
+    <%= simple_form_for @user, :controller => 'users', :action => 'update' do |u| %> 
+      <div layout layout-sm="column">
+      <md-input-container flex>
+          <label>First Name</label>
+          <%= u.input_field :first_name %>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Last Name</label>
+          <%= u.input_field :last_name %>
+        </md-input-container>
     </div>
+      <md-input-container flex>
+        <label>School</label>
+        <input ng-model="profile.school" ng-keypress="showSchool()">
+      </md-input-container>
+      <li ng-repeat="university in uni | filter:profile.school | limitTo:5" 
+			ng-click="setSchool(university.universityName)"
+			ng-hide="listIsHidden" class="ng-hide">
+  			{{university.universityName}}
+		</li>
+      <div layout layout-sm="column">
+      	<md-input-container flex>
+          <label>Facebook</label>
+          <%= u.input_field :facebook %>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Twitter</label>
+          <%= u.input_field :twitter %>
+        </md-input-container>
+      </div>
+      <div layout layout-sm="column">
+      	<md-input-container flex>
+          <label>LinkedIn</label>
+          <%= u.input_field :linkedin %>
+        </md-input-container>
+      	<md-input-container flex>
+          <label>GitHub</label>
+          <%= u.input_field :github %>
+        </md-input-container>
+    </div>
+    <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>Resume</label>
+          <%= u.input_field :resume %>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Website</label>
+          <%= u.input_field :website %>
+        </md-input-container>
+      </div>
+    <div layout layout-sm="column">
+    </div>
+    </md-content>
+</div>
+<br><button class="md-raised md-button"><span class="ng-scope">Save Profile</span></button>
+</div>
+<% end %>
+</div>
