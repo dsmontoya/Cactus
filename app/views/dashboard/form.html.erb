@@ -55,7 +55,15 @@
 	        </md-input-container>
 	      </div>
 	    <% end %>
-	      
+
+	    <div layout layout-sm="column">
+	    	<h3>Code of Conduct</h3>
+	    	<p>Please Read the <a href="#">Code of Conduct</a></p>
+	          <label>I have Read the Code of Conduct</label>
+	          <%= f.input :code_of_conduct_read, :as => :radio_buttons %>
+	        </md-input-container>
+	    </div>
+	      	
 	    </md-content>
 	</div>
 		    	<%= f.button :submit %>
