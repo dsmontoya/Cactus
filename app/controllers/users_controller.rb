@@ -5,10 +5,17 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+      render :json => User.all
+  end
+
+  def search_users
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
       render :json => @users
   end
+
+
+
 
   # GET /users/1
   # GET /users/1.json
@@ -45,9 +52,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
       if @user.update(user_params)
-       head :ok 
+       flash[:success] = "Profile Updated!"  
+       redirect_to edit_user_path
       else
-       head :error 
+       flash[:error] = "Something Went Wrong"
+       redirect_to :back
       end
   end
 
@@ -75,7 +84,4 @@ class UsersController < ApplicationController
                                 :id, :created_at, :updated_at, :email, [:resumes_attributes => ['title', 'user_id', 'file', '_destroy']],
                                 :user_id, :status)
     end
-end
-
-end
 end

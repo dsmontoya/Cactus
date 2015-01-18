@@ -5,8 +5,6 @@ class TeamsController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @q = Team.ransack(params[:q])
-    @teams = @q.result(distinct: true)
       render :json => @teams
   end
 
@@ -73,6 +71,5 @@ class TeamsController < ApplicationController
     end
 end
 
-end
 end
 end

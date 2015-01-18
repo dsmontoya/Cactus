@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users, :controllers => {:registrations => 'users/registrations',
                                       :sessions      => 'users/sessions',
                                       :confirmations => 'users/confirmations',
@@ -8,30 +10,23 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :notifications
   resources :forms
+  resources :users
   get 'dashboard' => 'dashboard#index'
   get 'dashboard/profile' => 'dashboard#profile', as: :profile
   post 'dashboard/profile' => 'dashboard#profile', as: :update_profile
   get 'dashboard/applications/new' => 'dashboard#form', as: :new_submission
   get 'dashboard/applications' => 'dashboard#available_forms', as: :submissions
 
-  get 'users' => 'api/v1/users#index', as: :users
 
-namespace :api, defaults: {format: 'json'} do
-  namespace :v1 do
-    resources :users do
-      collection { patch :update }
 
-    end
-    resource :forms do
-      collection { get   :new }
-    end
-  end
-end
+
 
 devise_scope :user do
   get 'login' => 'users/sessions#new'
   get 'logout' => 'users/sessions#destroy'
   get 'signup' => 'users/registrations#new'
+  get 'invites/new' => 'users/registrations#new', as: :new_registration
+
 end
 
   # The priority is based upon order of creation: first created -> highest priority.
