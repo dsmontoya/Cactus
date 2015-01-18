@@ -43,7 +43,7 @@ end
  		:sponsor_you_want_to_see => ss(sponsor),
  		:what_do_you_want_to_learn => ss(learn),
  		:shirt_size => ss(shirt),
- 		:dietary_restriction => ss(dietary),
+ 		:dietary_restrictions => ss(dietary),
  		:interests => ss(interest))
 
 end
