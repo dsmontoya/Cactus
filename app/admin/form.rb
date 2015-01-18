@@ -15,4 +15,13 @@ ActiveAdmin.register Form do
   # end
 
 
+  index do
+    selectable_column
+      column "ID", :id
+      column("Email") { |form| User.find(form.user_id).email }
+      column "Submitted At", :created_at
+      column "First Hackathon", :first_hackathon
+      column "Interests", :interests
+      column "Proficiences", :proficiences
+  end
 end
