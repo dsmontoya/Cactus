@@ -5,7 +5,8 @@ module ApplicationHelper
 	end
 
 	def human_readable_status(status)
-		status = ['Undecided', 'Accepted', 'Rejected', 'Waitlisted', 'Cancelled']
+		status_options = ['Undecided', 'Accepted', 'Rejected', 'Waitlisted', 'Cancelled']
+		return status_options[status]
 	end
 
 end
