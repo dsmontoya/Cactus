@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :forms
   resources :users
   get 'dashboard' => 'dashboard#index'
+  get 'dashboard/events' => 'dashboard#events', as: :events
   get 'dashboard/profile' => 'dashboard#profile', as: :profile
   post'dashboard/profile' => 'dashboard#profile', as: :update_profile
   get 'dashboard/applications/new' => 'dashboard#form', as: :new_submission
