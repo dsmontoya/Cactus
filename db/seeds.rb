@@ -6,9 +6,28 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Form.create(
-	:project => "The next biggest thing",
-	:first_hackathon => true,
-	:why => "Hackthons are the future!",
-	:user_id => 5432,
-	:code_of_conduct_read => true)
+SEED_NAME_PREFIX => "seed_"
+
+proj = ["The next biggest thing", "Terrible, terrible idea"]
+hack = [true, false]
+why = ["Hackthons are the future!"]
+userId = [5432,231214]
+conduct = [false, true]
+first = ["Travis", "Ian", "Jordan", "Nick", "Bijan"]
+last = ["Tracey", "Morin", "Singer", "Woodrow", "Anjavi"]
+
+# helper method for getting a random value from array
+def ss(some_array)
+	someArray.shuffle.sample
+end
+
+
+1000.times {
+	Form.create(
+		:project => ss(proj),
+		:first_hackathon => ss(hack),
+		:why => ss(why),
+		:user_id => ss(userId),
+		:code_of_conduct_read => ss(conduct),
+		:)
+}
