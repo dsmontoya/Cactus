@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   def update
       if @user.update(user_params)
        flash[:success] = "Profile Updated!"  
-       redirect_to edit_user_path
+       redirect_to :back
       else
        flash[:error] = "Something Went Wrong"
        redirect_to :back
