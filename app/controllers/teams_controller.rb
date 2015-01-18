@@ -1,6 +1,4 @@
-module Api
-  module V1
-    class TeamsController < ApiController
+class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   respond_to :json
 
@@ -19,7 +17,7 @@ module Api
 
   # GET /users/new
   def new
-    @team = team.new
+    @team = Team.new
   end
 
   # GET /users/1/edit
@@ -30,7 +28,7 @@ module Api
   # POST /users
   # POST /users.json
   def create
-    @team = team.new(user_params)
+    @team = Team.new(user_params)
 
     respond_to do |format|
       if @team.save
@@ -66,7 +64,7 @@ module Api
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
-      @team = team.find(params[:id])
+      @team = Team.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

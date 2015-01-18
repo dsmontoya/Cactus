@@ -1,6 +1,4 @@
-module Api
-  module V1
-    class NotificationsController < ApiController
+class NotificationsController < ApplicationController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
 
   # GET /notifications
