@@ -2,10 +2,16 @@
 	<div class="container">
 	<div layout="column" class="container md-whiteframe-z1">
 	  <md-content class="md-padding">
-	    <%= simple_form_for :new_form_path do |f| %>
+	    <%= simple_form_for @form do |f| %>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	          <%= f.input :first_hackathon, :as => :radio_buttons, :label => "Is This Your First Hackathon?" %>
+	        </md-input-container>
+	      </div>
+	      <div layout layout-sm="column">
+	      	<md-input-container flex>
+	      		<label>Tell Us about Your Favorite Project You've Worked on.</label>
+	          <%= f.text_area :project %>
 	        </md-input-container>
 	      </div>
 	      <div layout layout-sm="column">
@@ -31,8 +37,8 @@
 	          <%= f.input :dietary_restrictions, :label => false %>
 	        </md-input-container>
 	      </div>
-	      <div layout layout-sm="column">
-	      	      	<p>Add your Team</p>
+	      <h3>Team</h3>
+	     	    <div layout layout-sm="column">
 	   	<%= f.simple_fields_for :teams do |t| %>
 	      	<md-input-container flex>
 
@@ -52,7 +58,7 @@
 	      
 	    </md-content>
 	</div>
-		    	<md-button class="md-raised md-primary" ng-click="save(form);showActionToast()">Submit</md-button>
+		    	<%= f.button :submit %>
 
 	<% end %>
 </div>

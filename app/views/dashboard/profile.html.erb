@@ -2,7 +2,7 @@
 <div class="container">
 <div layout="column" class="md-whiteframe-z1">
 	  <md-content class="md-padding">
-	    <%= simple_form_for :edit_user_path do |u|  %>
+	    <%= simple_form_for @user, :controller => 'users', :action => 'update' do |u| %> 
 	      <div layout layout-sm="column">
 	      <md-input-container flex>
 	          <label>First Name</label>
@@ -52,6 +52,8 @@
 	          <%= u.input_field :website %>
 	        </md-input-container>
 	      </div>
+	    <div layout layout-sm="column">
+	    </div>
 	    </md-content>
 	</div>
 	<br><button class="md-raised md-button"><span class="ng-scope">Save Profile</span></button>
