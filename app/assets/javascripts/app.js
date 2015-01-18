@@ -1,8 +1,14 @@
-var app = angular.module('hacktus', ['ngMaterial'])
-.config(function($mdThemingProvider) {
+var app = angular.module("cactus", ['ngMaterial']).run(['$compile', '$rootScope', '$document', function($compile, $rootScope, $document) {
+    return $document.on('page:load', function() {
+        var body, compiled;
+        body = angular.element('body');
+        compiled = $compile(body.html())($rootScope);
+        return body.html(compiled);
+    });
+}]).config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryColor('purple')
-    .accentColor('purple');
+    .primaryColor('teal')
+    .accentColor('teal');
 });
 
 // form controller
@@ -26,6 +32,11 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
                 .position($scope.getToastPosition())
                 .hideDelay(0)
     )};
+    $scope.findUsers = function(query) {
+        $http.get('/api/v1/users', query).success(function(data) {
+            $scope.results = data;
+        });
+    }
 
 }]);
 
@@ -68,6 +79,11 @@ $scope.toastPosition = {
 // profile controller
 app.controller("ProfileController", ['$scope', '$http', function($scope, $http) {
     $scope.profile;
+    $scope.uni;
+    $scope.listIsHidden = false;
+
+    
+
 
     $scope.load = function(json) {
         $scope.profile = json;
@@ -78,7 +94,28 @@ app.controller("ProfileController", ['$scope', '$http', function($scope, $http) 
         });
     };
 
+    $scope.loadUni = function() {
+        $http.get("/uniParsed").success(function(data, status, headers, config) {
+            $scope.uni = data;
+        }).error(function(data, status, headers, config) {
+            alert('fail');
+        });
+    };
+
+    $scope.setSchool = function(name) {
+        $scope.profile.school = name;
+        $scope.listIsHidden = true;
+    };
+
+    $scope.hideSchool = function() {
+        $scope.hideSchools = true;
+    };
+
+    $scope.showSchool = function() {
+        $scope.listIsHidden = false;
+    };
 }]);
+
 app.controller('LeftCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', function($scope, $timeout, $mdSidenav, $log) {
   $scope.close = function() {
     $mdSidenav('left').close()
