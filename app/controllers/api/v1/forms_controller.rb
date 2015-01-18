@@ -1,4 +1,6 @@
-class FormsController < ApplicationController
+module Api
+  module V1
+    class FormsController < ApiController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
   # GET /forms
@@ -30,7 +32,7 @@ class FormsController < ApplicationController
         redirect_to :form 
       else
         flash[:error] = "Something went wrong"
-        redirect_to :new_submission
+        redirect_to :new
       end
   end
 
@@ -69,7 +71,9 @@ class FormsController < ApplicationController
       params.require(:form).permit(:project, :first_hackathon, :why, :how_did_you_hear_about_us,
                                                  :proficiencies, :sponsor_you_want_to_see, :what_do_you_want_to_learn,
                                                  :shirt_size, :dietary_restrictions, :code_of_conduct_read, :team_id,
-                                                 :interests, :team_id, :team_attributes => [:teammates])
+                                                 :interests)
     end
 end
 
+end
+end

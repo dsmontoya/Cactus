@@ -43,15 +43,15 @@
 	      	<md-input-container flex>
 
 	          <label>Teammate 1</label>
-	          <%= t.input_field :teammate %>
+	          <%= t.input_field :teammate, name:"teammates[]" %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Teammate 2</label>
-	          <%= t.input_field :teammate %>
+	          <%= t.input_field :teammate, name: "teammates[]" %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Teammate 3</label>
-	          <%= t.input_field :teammate %>
+	          <%= t.input_field :teammate, name: "teammates[]" %>
 	        </md-input-container>
 	      </div>
 	    <% end %>

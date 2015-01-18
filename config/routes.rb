@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users
   get 'dashboard' => 'dashboard#index'
   get 'dashboard/profile' => 'dashboard#profile', as: :profile
-  post 'dashboard/profile' => 'dashboard#profile', as: :update_profile
+  post'dashboard/profile' => 'dashboard#profile', as: :update_profile
   get 'dashboard/applications/new' => 'dashboard#form', as: :new_submission
   get 'dashboard/applications' => 'dashboard#available_forms', as: :submissions
 
