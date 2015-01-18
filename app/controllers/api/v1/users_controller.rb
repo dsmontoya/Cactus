@@ -7,10 +7,17 @@ module Api
   # GET /users
   # GET /users.json
   def index
+      render :json => User.all
+  end
+
+  def search_users
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
       render :json => @users
   end
+
+
+
 
   # GET /users/1
   # GET /users/1.json

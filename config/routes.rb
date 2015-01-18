@@ -16,12 +16,15 @@ Rails.application.routes.draw do
   get 'users' => 'api/v1/users#index', as: :users
   get 'dashboard/team' => 'dashboard#team', as: :team
 
+
 namespace :api, defaults: {format: 'json'} do
   namespace :v1 do
     resources :users do
-      collection { patch :update }
-
-    end
+      collection { 
+        patch :update
+        get :search_users
+      }
+      end
     resource :forms do
       collection { get   :new }
     end
@@ -32,6 +35,8 @@ devise_scope :user do
   get 'login' => 'users/sessions#new'
   get 'logout' => 'users/sessions#destroy'
   get 'signup' => 'users/registrations#new'
+  get 'invites/new' => 'users/registrations#new', as: :new_registration
+
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

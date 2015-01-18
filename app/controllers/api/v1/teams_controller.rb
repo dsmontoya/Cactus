@@ -7,8 +7,6 @@ module Api
   # GET /users
   # GET /users.json
   def index
-    @q = Team.ransack(params[:q])
-    @teams = @q.result(distinct: true)
       render :json => @teams
   end
 

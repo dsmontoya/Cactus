@@ -27,7 +27,7 @@ app.controller("FormController", ['$scope', '$http', function($scope, $http) {
                 .hideDelay(0)
     )};
     $scope.findUsers = function(query) {
-        $http.get('/api/v1/users', query).success(function(data) {
+        $http.get('/api/v1/users/search_users', query).success(function(data) {
             $scope.results = data;
         });
     }
