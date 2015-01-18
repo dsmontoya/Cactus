@@ -9,7 +9,6 @@
 proj = ["The next biggest thing", "Terrible, terrible idea"]
 hack = [true, false]
 why = ["Hackthons are the future!"]
-userId = [,]
 conduct = [false, true]
 first = ["Travis", "Ian", "Jordan", "Nick", "Bijan"]
 last = ["Tracey", "Morin", "Singer", "Woodrow", "Anjavi"]
@@ -33,11 +32,18 @@ end
 		:password => 'password', 
 		:password_confirmation => 'password')
 
+
 	Form.create(
 		:user_id => User.last.id,
 		:project => ss(proj),
 		:first_hackathon => ss(hack),
 		:why => ss(why),
- 		:code_of_conduct_read => ss(conduct))
+ 		:code_of_conduct_read => ss(conduct),
+ 		:proficiencies => ss(proficiency),
+ 		:sponsor_you_want_to_see => ss(sponsor),
+ 		:what_do_you_want_to_learn => ss(learn),
+ 		:shirt_size => ss(shirt),
+ 		:dietary_restriction => ss(dietary),
+ 		:interests => ss(interest))
 
 end
