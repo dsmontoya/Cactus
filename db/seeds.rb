@@ -6,8 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-SEED_NAME_PREFIX => "seed_"
-
 proj = ["The next biggest thing", "Terrible, terrible idea"]
 hack = [true, false]
 why = ["Hackthons are the future!"]
@@ -18,7 +16,7 @@ last = ["Tracey", "Morin", "Singer", "Woodrow", "Anjavi"]
 
 # helper method for getting a random value from array
 def ss(some_array)
-	someArray.shuffle.sample
+	some_array.shuffle.sample
 end
 
 
