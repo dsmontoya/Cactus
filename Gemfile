@@ -34,7 +34,7 @@ gem 'select2-rails'
 
 gem 'carrierwave'
 gem 'fog'
-gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
+gem 'ransack', '~> 1.3'
 gem 'simple_form'
 gem 'devise_invitable'
 
