@@ -1,8 +1,40 @@
-html, body {
-	background: #fff !important;
-}
-h1 {
+#hero {
+	width: 100%;
+	height: auto;
+	background: rgb(0,150,136);
 	text-align: center;
+	padding: 128px 0;
+}
+#hero h1 {
+	margin: 0;
+	display: block;
+	font-size: 72px;
+	color: #fff;
 	font-weight: 300;
-	font-size: 64px;
+}
+#hero h3 {
+	color: rgba(255, 255, 255, 0.75);
+	font-weight: 400;
+	font-size: 24px;
+}
+#hack-arizona {
+	background: #FAEEC9;
+	padding: 100px;
+}
+.mountains {
+	float: right;
+	width: 60%;
+	height: 307px;
+	display: inline-block;
+}
+.mountains .one {
+	background-image: url(http://hackarizona.org/images/mountains.png);
+}
+.mountains div {
+	width: 798px;
+	height: 307px;
+	display: inline-block;
+	vertical-align: bottom;
+	background-size: 798px 307px;
+	background-repeat: no-repeat;
 }

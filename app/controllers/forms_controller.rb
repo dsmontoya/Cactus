@@ -1,6 +1,4 @@
-module Api
-  module V1
-    class FormsController < ApiController
+class FormsController < ApplicationController
   before_action :set_form, only: [:show, :edit, :update, :destroy]
 
   # GET /forms
