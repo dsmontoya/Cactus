@@ -27,11 +27,12 @@ module Api
   # POST /forms.json
   def create
     @form = Form.new(form_params)
-
       if @form.save
-        head :ok
+        flash[:success] = "Form Submitted"
+        redirect_to :form 
       else
-        head :error
+        flash[:error] = "Something went wrong"
+        redirect_to :new
       end
   end
 
