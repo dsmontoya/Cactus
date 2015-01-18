@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Form.create(
+	:project => "The next biggest thing",
+	:first_hackathon => true,
+	:why => "Hackthons are the future!",
+	:user_id => 5432,
+	:code_of_conduct_read => true)
