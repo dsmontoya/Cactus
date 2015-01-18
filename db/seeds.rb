@@ -25,19 +25,19 @@ def ss(some_array)
 	some_array.shuffle.sample
 end
 
+1000.times do |i| 
+	User.create(
+		:email => "test"+i.to_s+"@hackarizona.org",
+		:first_name => ss(first),
+		:last_name => ss(last),
+		:password => 'password', 
+		:password_confirmation => 'password')
 
-1000.times {
 	Form.create(
+		:user_id => User.last.id,
 		:project => ss(proj),
 		:first_hackathon => ss(hack),
 		:why => ss(why),
-		:user_id => ss(userId),
-		:code_of_conduct_read => ss(conduct)
-		:proficiencies => ss(proficiency)
-		:sponsor_you_want_to_see => ss(sponsor)
-		:what_do_you_want_to_learn => ss(learn)
-		:shirt_size => ss(shirt)
-		:dietary_restrictions => ss(dietary)
-		:interests => ss(interest))
-	
-}
+ 		:code_of_conduct_read => ss(conduct))
+
+end

@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150118070148) do
     t.boolean  "code_of_conduct_read"
     t.integer  "team_id"
     t.string   "interests"
+    # 0 = undecided 1 = accepted, 2 = reject, 3 = waitlisted, 4 = cancellation
     t.integer  "status",                    default: 0
     t.integer  "user_id"
   end

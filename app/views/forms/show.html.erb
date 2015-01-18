@@ -1,4 +1,80 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_form_path(@form) %> |
-<%= link_to 'Back', forms_path %>
+<div id="form" ng-controller="FormController as form">
+	<div class="container">
+	<div layout="column" class="container md-whiteframe-z1">
+
+	  <md-content class="md-padding">
+	  	  <h2>Hack Arizona Form #<%= @form.id %></h2>
+	  	  <hr />
+	  	  <h3>Applicant Information</h3>
+	  	  <div layout layout-sm="column">
+	      	<md-input-container flex>
+	          Is This Your First Hackathon?
+	          <%= human_readable_boolean(@form.first_hackathon) %>
+	        </md-input-container>
+	      </div>
+	      <div layout layout-sm="column">
+	      	<md-input-container flex>
+	          Is This Your First Hackathon?
+	          <%= human_readable_boolean(@form.first_hackathon) %>
+	        </md-input-container>
+	      </div>
+	      <div layout layout-sm="column">
+	      	<md-input-container flex>
+	      		<label>Tell Us about Your Favorite Project You've Worked on.</label>
+	          <%= @form.project %>
+	        </md-input-container>
+	      </div>
+	      <div layout layout-sm="column">
+	      <md-input-container flex>
+	        <label>How Did You Hear About Us?</label>
+	        <%= @form.how_did_you_hear_about_us %>
+	      </md-input-container>
+	  	</div>
+	      <div layout layout-sm="column">
+	      	<md-input-container flex>
+	          <label>What Sponsor Do You Want to See the Most?</label>
+  			<%= @form.sponsor_you_want_to_see %>
+	        </md-input-container>
+	    </div>
+	    <div layout layout-sm="column">
+	        <md-input-container flex>
+	          <%= @form.shirt_size %>
+	        </md-input-container>
+	    </div>
+	    <div layout layout-sm="column">
+	        <md-input-container flex>
+	          <label>Do You Have Any Dietary Restrictions?</label>
+	          <%= @form.dietary_restrictions %>
+	        </md-input-container>
+	      </div>
+	      <h3>Team</h3>
+	     	    <div layout layout-sm="column">
+	   	<h2>Team</h2>
+	      	<md-input-container flex>
+
+	          <label>Teammate 1</label>
+	          <%#= t.input_field :teammate, name:"teammates[]" %>
+	        </md-input-container>
+	        <md-input-container flex>
+	          <label>Teammate 2</label>
+	          <%#= t.input_field :teammate, name: "teammates[]" %>
+	        </md-input-container>
+	        <md-input-container flex>
+	          <label>Teammate 3</label>
+	          <%#= t.input_field :teammate, name: "teammates[]" %>
+	        </md-input-container>
+	      </div>
+
+	    <div layout layout-sm="column">
+	    	<h3>Code of Conduct</h3>
+	    	<p>Please Read the <a href="#">Code of Conduct</a></p>
+	          <label>I have Read the Code of Conduct</label>
+	          <%= @form.code_of_conduct_read %>
+	        </md-input-container>
+	    </div>
+	      	
+	    </md-content>
+	</div>
+</div>

@@ -17,11 +17,12 @@ ActiveAdmin.register Form do
 
   index do
     selectable_column
-      column "ID", :id
+      column("ID") { |form| link_to form.id, form_path(form) }
       column("Email") { |form| User.find(form.user_id).email }
       column "Submitted At", :created_at
       column "First Hackathon", :first_hackathon
       column "Interests", :interests
       column "Proficiences", :proficiences
+      column "Status", :status
   end
 end
