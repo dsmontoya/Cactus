@@ -1,13 +1,15 @@
 <div id="form" ng-controller="FormController as form">
 	<div class="container">
 	<div layout="column" class="container md-whiteframe-z1">
+	<br>
 	  <md-content class="md-padding">
 	    <%= simple_form_for @form do |f| %>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
-	          <%= f.input :first_hackathon, :as => :radio_buttons, :label => "Is This Your First Hackathon?" %>
+	      	<%= f.input :first_hackathon, collection: [["No", false], ["Yes", true]], :label => "Is This Your First Hackathon?" %>
 	        </md-input-container>
 	      </div>
+	      <md-divider></md-divider><br>
 	      <div layout layout-sm="column">
 	      	<md-input-container flex>
 	      		<label>Tell Us about Your Favorite Project You've Worked on.</label>
@@ -28,22 +30,31 @@
 	    </div>
 	    <div layout layout-sm="column">
 	        <md-input-container flex>
-	          <%= f.input :shirt_size, collection: ["S", "M", "L", "XL"], :label => "What's Your Shirt Size?" %>
+	          <%= f.input :shirt_size, collection: [["Small", "S"], ["Medium", "M"], ["Large", "L"], ["Extra Large", "XL"]], :label => "What's Your Shirt Size?" %>
 	        </md-input-container>
 	    </div>
-	    <div layout layout-sm="column">
-	        <md-input-container flex>
+	    <md-divider></md-divider><br>
+	     <div layout layout-sm="column">
+	      	<md-input-container flex>
 	          <label>Do You Have Any Dietary Restrictions?</label>
-	          <%= f.input :dietary_restrictions, :label => false %>
+  			<%= f.text_area :dietary_restrictions %>
 	        </md-input-container>
-	      </div>
+	    </div>
+
+	    <div layout layout-sm="column">
+	      <md-input-container flex>
+	          <label>Interests</label>
+	          <%= f.input_field :interests %>
+	        </md-input-container>
+	    </div>
+
 	      <h3>Team</h3>
-	     	    <div layout layout-sm="column">
-	   	<%= f.simple_fields_for :teams do |t| %>
+	     <div layout layout-sm="column">
+	   		<%= f.simple_fields_for :teams do |t| %>
 	      	<md-input-container flex>
 
 	          <label>Teammate 1</label>
-	          <%= t.input_field :teammate, name:"teammates[]" %>
+	          <%= t.input_field :teammate, name:"teammates[]", "type" => "email" %>
 	        </md-input-container>
 	        <md-input-container flex>
 	          <label>Teammate 2</label>
@@ -56,22 +67,14 @@
 	      </div>
 	    <% end %>
 
-	    <div layout layout-sm="column">
 	    	<h3>Code of Conduct</h3>
-	    	<p>Please Read the <a href="#">Code of Conduct</a></p>
-	          <label>I have Read the Code of Conduct</label>
-	          <%= f.input :code_of_conduct_read, :as => :radio_buttons %>
+	    	<p>Please Read the <a href="http://hackcodeofconduct.org/" target="_blank">Code of Conduct</a></p>
+	          <%= f.input :code_of_conduct_read, :as => :boolean, :label => "I have Read the Code of Conduct" %>
 	        </md-input-container>
-	    </div>
+	        <br>
 	      	
 	    </md-content>
 	</div>
-		    	<%= f.button :submit %>
-
+    <br><button class="md-raised md-button"><span class="ng-scope">Apply</span></button>
 	<% end %>
 </div>
-		      	 <%= search_form_for @q do |f| %>
-	      	 	<%= f.label :email_cont %>
-	<input name="q" type="text" ng-model="form.q" ng-keypress="findUsers(form.q)">
-  <%= f.submit remote: true  %>
-<% end %>
