@@ -28,6 +28,5 @@ end
 		:first_hackathon => ss(hack),
 		:why => ss(why),
 		:user_id => ss(userId),
-		:code_of_conduct_read => ss(conduct),
-		:)
+		:code_of_conduct_read => ss(conduct))
 }
