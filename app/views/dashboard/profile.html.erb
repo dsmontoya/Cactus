@@ -1,4 +1,4 @@
-<div id="profile" ng-controller="ProfileController as profile">
+<div id="profile" ng-controller="ProfileController as profile" ng-init="load(<%= @user.to_json %>); loadUni()">
 <div class="container">
 <div layout="column" class="md-whiteframe-z1">
 	  <md-content class="md-padding">
@@ -15,11 +15,11 @@
 	    </div>
 	      <md-input-container flex>
 	        <label>School</label>
-	        <input ng-model="profile.school" ng-keypress="showSchool()">
+	        <%= u.input_field :school, "ng-model" => "profile.school", "ng-keypress" => "showSchool()", value: "#{@user.school}" %>
 	      </md-input-container>
 	      <li ng-repeat="university in uni | filter:profile.school | limitTo:5" 
 				ng-click="setSchool(university.universityName)"
-				ng-hide="listIsHidden" class="ng-hide">
+				ng-hide="listIsHidden" class="university">
 	  			{{university.universityName}}
 			</li>
 	      <div layout layout-sm="column">

@@ -19,3 +19,7 @@ a {
 .devise h2 {
 	font-weight: 400;
 }
+.university {
+	list-style: none;
+	cursor: pointer;
+}

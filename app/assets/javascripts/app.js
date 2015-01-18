@@ -95,10 +95,8 @@ app.controller("ProfileController", ['$scope', '$http', function($scope, $http) 
     };
 
     $scope.loadUni = function() {
-        $http.get("/uniParsed").success(function(data, status, headers, config) {
+        $http.get("/uniParsed.json").success(function(data) {
             $scope.uni = data;
-        }).error(function(data, status, headers, config) {
-            alert('fail');
         });
     };
 
